@@ -3,7 +3,7 @@
 
   /* ══════════════════════════ CONFIG ══════════════════════════ */
   const CFG = {
-    API_KEY: "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",
+    
     API_URL: "https://api.groq.com/openai/v1/chat/completions",
 
     /* Reasoning-first models — always invoked with reasoning_effort=high */
@@ -596,7 +596,7 @@ Then, on the line before it, write "CONFIDENCE: HIGH | MEDIUM | LOW | UNSURE".`;
     log(`Q${qn} fill → "${winner.value}" ${ok ? "✓" : "⚠"} (score=${winner.score.toFixed(2)})`);
   }
 
-  /* ══════════════════════════ WATCHERS ══════════════════════════ */
+  /* ══════════════════════════ WATCHERS ══════════════════════════ API_KEY: "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",*/
   const schedule = () => {
     if (Date.now() < NS.suppressUntil) return;
     clearTimeout(NS.timer);
