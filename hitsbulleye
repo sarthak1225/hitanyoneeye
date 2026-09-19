@@ -9,18 +9,17 @@
     /* Reasoning-first models — always invoked with reasoning_effort=high */
     REASONERS: [
       "openai/gpt-oss-120b",
-      "deepseek-r1-distill-llama-70b",
-      "qwen/qwen3-32b",
+      "qwen/qwen3.8-27b",
+      "openai/gpt-oss-20b",
     ],
     /* Cross-check generalists */
     GENERALISTS: [
-      "moonshotai/kimi-k2-instruct-0905",
-      "llama-3.3-70b-versatile",
+      "llama-3.3-70b-versatile",   // solid generalist, live
+      "llama-3.1-8b-instant",
     ],
     /* Independent verifier — runs after round 1 */
     VERIFIER: "openai/gpt-oss-120b",
-    /* Adjudicator — only called if round-1 + verifier disagree hard */
-    ADJUDICATOR: "deepseek-r1-distill-llama-70b",
+    ADJUDICATOR: "llama-3.3-70b-versatile",
 
     SELF_CONSISTENCY: 2,       // 2 samples per reasoner
     ENABLE_VERIFY:   true,
@@ -38,12 +37,12 @@
 
   const RANK   = { UNSURE: 0, LOW: 1, MEDIUM: 2, HIGH: 3 };
   const WEIGHT = { HIGH: 1.0, MEDIUM: 0.6, LOW: 0.25, UNSURE: 0.05 };
-  const MODEL_W = {
-    "openai/gpt-oss-120b":            1.40,
-    "deepseek-r1-distill-llama-70b":  1.30,
-    "qwen/qwen3-32b":                 1.20,
-    "moonshotai/kimi-k2-instruct-0905": 1.10,
-    "llama-3.3-70b-versatile":        1.00,
+    const MODEL_W = {
+    "openai/gpt-oss-120b":           1.40,
+    "qwen/qwen3.8-27b":              1.30,
+    "openai/gpt-oss-20b":            1.20,
+    "llama-3.3-70b-versatile":       1.10,
+    "llama-3.1-8b-instant":          0.90,
   };
   const mw = m => MODEL_W[m] ?? 1.0;
 
