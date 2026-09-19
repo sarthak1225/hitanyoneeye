@@ -3,7 +3,7 @@
 
   /* ══════════════════════════ CONFIG ══════════════════════════ */
   const CFG = {
-    
+    API_KEY: "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",
     API_URL: "https://api.groq.com/openai/v1/chat/completions",
 
     /* Reasoning-first models — always invoked with reasoning_effort=high */
